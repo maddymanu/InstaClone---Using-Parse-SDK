@@ -10,6 +10,7 @@
     <string name="LogoutBtn">Log Out</string>
     <string name="Welcome">Welcome!</string>
     <string name="action_settings">something here</string>
+    <string name="action_search">something here</string>
 	<string name="input_hint">Enter a Task</string>
     <string name="submit_button">Submit</string>
     <string name="title_activity_login">Log In</string>

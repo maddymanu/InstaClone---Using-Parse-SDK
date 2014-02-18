@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -16,6 +18,8 @@ import android.widget.ImageView;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
+//Will probably be the base activity for the Action Bar
+
 public class Welcome extends Activity {
 
 	Button clickButton;
@@ -23,6 +27,14 @@ public class Welcome extends Activity {
 	ImageView imageV;
 	Pic pic;
 	static final int REQUEST_IMAGE_CAPTURE = 1;
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    // Inflate the menu items for use in the action bar
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.main_activity_actions, menu);
+	    return super.onCreateOptionsMenu(menu);
+	}
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
