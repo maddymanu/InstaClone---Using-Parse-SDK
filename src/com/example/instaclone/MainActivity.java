@@ -20,33 +20,11 @@ public class MainActivity extends Activity {
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivity(intent);
 			finish();
+		} else {
+			Intent intent = new Intent(MainActivity.this, Welcome.class);
+			startActivity(intent);
 		}
 		
-		
-
-//		if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {
-//			// If user is anonymous, send the user to LoginSignupActivity.class
-//			Intent intent = new Intent(MainActivity.this,
-//					LoginSignupActivity.class);
-//			startActivity(intent);
-//			finish();
-//		} else
-//		{
-//
-//			ParseUser currentUser = ParseUser.getCurrentUser();
-//			if (currentUser != null) {
-//				// Send logged in users to Welcome.class
-//				Intent intent = new Intent(MainActivity.this, Welcome.class);
-//				startActivity(intent);
-//				finish();
-//			} else {
-//				// Send user to LoginSignupActivity.class
-//				Intent intent = new Intent(MainActivity.this,
-//						LoginSignupActivity.class);
-//				startActivity(intent);
-//				finish();
-//			}
-//		}
 
 	}
 
