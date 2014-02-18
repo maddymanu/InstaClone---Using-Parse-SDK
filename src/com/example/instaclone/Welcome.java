@@ -1,5 +1,7 @@
 package com.example.instaclone;
 
+import java.io.ByteArrayOutputStream;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 public class Welcome extends Activity {
@@ -31,9 +34,6 @@ public class Welcome extends Activity {
 		titleText = (EditText) findViewById(R.id.title_text);
 		imageV = (ImageView) findViewById(R.id.image_view);
 
-		pic = new Pic();
-		pic.setTitle(titleText.getText().toString());
-		pic.setAuthor(ParseUser.getCurrentUser());
 
 		clickButton.setOnClickListener(new OnClickListener() {
 
@@ -56,6 +56,18 @@ public class Welcome extends Activity {
 	        Bundle extras = data.getExtras();
 	        Bitmap imageBitmap = (Bitmap) extras.get("data");
 	        imageV.setImageBitmap(imageBitmap);
+	        
+	        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+	        imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] image = stream.toByteArray(); // got the image file
+            
+            ParseFile file = new ParseFile("androidbegin.png", image);
+            pic = new Pic();
+    		pic.setTitle(titleText.getText().toString());
+    		pic.setAuthor(ParseUser.getCurrentUser());
+            pic.setPhotoFile(file);
+            pic.saveInBackground();
+	        
 	    }
 	}
 	
