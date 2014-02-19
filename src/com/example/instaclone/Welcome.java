@@ -23,6 +23,7 @@ import com.parse.ParseUser;
 public class Welcome extends Activity {
 
 	Button clickButton;
+	Button logoutButton;
 	EditText titleText;
 	ImageView imageV;
 	Pic pic;
@@ -44,6 +45,7 @@ public class Welcome extends Activity {
 		
 
 		clickButton = (Button) findViewById(R.id.click);
+		logoutButton = (Button) findViewById(R.id.logout_button);
 		titleText = (EditText) findViewById(R.id.title_text);
 		imageV = (ImageView) findViewById(R.id.image_view);
 
@@ -56,6 +58,16 @@ public class Welcome extends Activity {
 			    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
 			        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
 			    }
+			}
+		});
+		
+		logoutButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ParseUser.logOut();
+				Intent intent = new Intent(Welcome.this, MainActivity.class);
+				startActivity(intent);
 			}
 		});
 
