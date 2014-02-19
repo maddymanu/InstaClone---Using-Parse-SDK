@@ -1,16 +1,13 @@
 package com.example.instaclone;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -28,10 +25,13 @@ import com.parse.ParseUser;
 public class UserFeed extends Activity {
 
 	ImageView iv;
-	GridView allImages;
+	GridView gridView;
 	ListView imageListView;
 	Bitmap[] imageBitmaps;
 	ImageLoader imageLoader;
+	GridViewAdapter adapter;
+
+	private List<PicList> picarraylist = null;
 
 	int i = 0;
 
@@ -46,8 +46,7 @@ public class UserFeed extends Activity {
 		imageLoader.init(config);
 
 		iv = (ImageView) findViewById(R.id.photo_view);
-		allImages = (GridView) findViewById(R.id.images_gridview);
-		imageListView = (ListView) findViewById(R.id.images_listview);
+		gridView = (GridView) findViewById(R.id.images_gridview);
 
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Pic");
 		query.whereEqualTo("author", ParseUser.getCurrentUser());
@@ -57,6 +56,7 @@ public class UserFeed extends Activity {
 			@Override
 			public void done(List<ParseObject> picList, ParseException e) {
 
+				picarraylist = new ArrayList<PicList>();
 				imageBitmaps = new Bitmap[picList.size() + 1];
 				// get the entire list of fucking bitmaps
 				if (e == null) {
@@ -65,6 +65,9 @@ public class UserFeed extends Activity {
 
 						ParseFile file = (ParseFile) picList.get(i)
 								.get("photo");
+						PicList map = new PicList();
+						map.setPic(file.getUrl());
+						picarraylist.add(map);
 						file.getDataInBackground(new GetDataCallback() {
 
 							@Override
@@ -91,7 +94,10 @@ public class UserFeed extends Activity {
 						});
 
 					}
-				
+					adapter = new GridViewAdapter(UserFeed.this,
+							picarraylist);
+					// Binds the Adapter to the ListView
+					gridView.setAdapter(adapter);
 				}
 
 			}
@@ -99,5 +105,3 @@ public class UserFeed extends Activity {
 		});
 	}
 }
-
-

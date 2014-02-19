@@ -16,12 +16,6 @@
         android:layout_height="wrap_content"
         android:src="@drawable/indicator_bg_top" />
 
-    <ListView
-        android:id="@+id/images_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
-
     <GridView
         android:id="@+id/images_gridview"
         android:layout_width="match_parent"
