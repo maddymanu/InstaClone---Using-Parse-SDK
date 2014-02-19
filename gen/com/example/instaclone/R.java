@@ -177,14 +177,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int indicator_bg_top=0x7f020005;
     }
     public static final class id {
-        public static final int LinearLayout01=0x7f050023;
-        public static final int action_search=0x7f050025;
-        public static final int action_settings=0x7f050024;
+        public static final int LinearLayout01=0x7f050025;
+        public static final int action_search=0x7f050027;
+        public static final int action_settings=0x7f050026;
         public static final int both=0x7f050003;
         public static final int click=0x7f05001d;
         public static final int disabled=0x7f050000;
         public static final int error_messages=0x7f05000c;
-        public static final int fl_inner=0x7f05001e;
+        public static final int fl_inner=0x7f050020;
         public static final int flip=0x7f050008;
         public static final int gridview=0x7f050009;
         public static final int image_view=0x7f05001c;
@@ -193,14 +193,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int login_username=0x7f05000d;
         public static final int manualOnly=0x7f050004;
         public static final int password=0x7f050014;
+        public static final int photo_view=0x7f05001f;
         public static final int pullDownFromTop=0x7f050005;
         public static final int pullFromEnd=0x7f050002;
         public static final int pullFromStart=0x7f050001;
         public static final int pullUpFromBottom=0x7f050006;
-        public static final int pull_to_refresh_image=0x7f05001f;
-        public static final int pull_to_refresh_progress=0x7f050020;
-        public static final int pull_to_refresh_sub_text=0x7f050022;
-        public static final int pull_to_refresh_text=0x7f050021;
+        public static final int pull_to_refresh_image=0x7f050021;
+        public static final int pull_to_refresh_progress=0x7f050022;
+        public static final int pull_to_refresh_sub_text=0x7f050024;
+        public static final int pull_to_refresh_text=0x7f050023;
         public static final int registerButton=0x7f050010;
         public static final int register_password=0x7f050018;
         public static final int register_username=0x7f050017;
@@ -210,6 +211,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int sign_in=0x7f05000f;
         public static final int sign_up=0x7f050019;
         public static final int signup=0x7f050016;
+        public static final int textView1=0x7f05001e;
         public static final int title_text=0x7f05001b;
         public static final int txtpassword=0x7f050013;
         public static final int txtusername=0x7f050011;
@@ -221,10 +223,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_main=0x7f030001;
         public static final int activity_register=0x7f030002;
         public static final int activity_welcome=0x7f030003;
-        public static final int main=0x7f030004;
-        public static final int pull_to_refresh_header_horizontal=0x7f030005;
-        public static final int pull_to_refresh_header_vertical=0x7f030006;
-        public static final int tab_host=0x7f030007;
+        public static final int feed_own=0x7f030004;
+        public static final int main=0x7f030005;
+        public static final int pull_to_refresh_header_horizontal=0x7f030006;
+        public static final int pull_to_refresh_header_vertical=0x7f030007;
+        public static final int tab_host=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;

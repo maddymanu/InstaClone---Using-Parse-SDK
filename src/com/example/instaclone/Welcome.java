@@ -41,6 +41,7 @@ public class Welcome extends Activity {
 		setContentView(R.layout.activity_welcome);
 
 		ParseUser currentUser = ParseUser.getCurrentUser();
+		
 
 		clickButton = (Button) findViewById(R.id.click);
 		titleText = (EditText) findViewById(R.id.title_text);

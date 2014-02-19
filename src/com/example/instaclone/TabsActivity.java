@@ -28,10 +28,10 @@ public class TabsActivity extends TabActivity{
                tab1.setContent(new Intent(this,Welcome.class));
                
                tab2.setIndicator("Feed");
-               tab2.setContent(new Intent(this,RegisterActivity.class));
+               tab2.setContent(new Intent(this,UserFeed.class)); //trial
 
                tab3.setIndicator("Settings?");
-               tab3.setContent(new Intent(this,LoginActivity.class));
+               tab3.setContent(new Intent(this,LoginActivity.class)); //trial
                
                /** Add the tabs  to the TabHost to display. */
               tabHost.addTab(tab1);
