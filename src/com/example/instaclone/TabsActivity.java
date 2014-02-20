@@ -13,7 +13,6 @@ public class TabsActivity extends TabActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tab_host);
 
-		// create the TabHost that will contain the Tabs
 		TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
 
 		TabSpec tab1 = tabHost.newTabSpec("First Tab");
@@ -24,10 +23,10 @@ public class TabsActivity extends TabActivity {
 		tab1.setContent(new Intent(this, Welcome.class));
 
 		tab2.setIndicator("Feed");
-		tab2.setContent(new Intent(this, UserFeed.class)); // trial
+		tab2.setContent(new Intent(this, UserFeed.class)); 
 
-		tab3.setIndicator("Settings?");
-		tab3.setContent(new Intent(this, LoginActivity.class)); // trial
+		tab3.setIndicator("All Users");
+		tab3.setContent(new Intent(this, UserListFeed.class)); 
 
 		/** Add the tabs to the TabHost to display. */
 		tabHost.addTab(tab1);

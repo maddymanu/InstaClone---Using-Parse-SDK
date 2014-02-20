@@ -84,11 +84,12 @@ int layout activity_main 0x7f030001
 int layout activity_register 0x7f030002
 int layout activity_welcome 0x7f030003
 int layout feed_own 0x7f030004
-int layout gridview_item 0x7f030005
-int layout main 0x7f030006
-int layout pull_to_refresh_header_horizontal 0x7f030007
-int layout pull_to_refresh_header_vertical 0x7f030008
-int layout tab_host 0x7f030009
+int layout feed_user_list 0x7f030005
+int layout gridview_item 0x7f030006
+int layout main 0x7f030007
+int layout pull_to_refresh_header_horizontal 0x7f030008
+int layout pull_to_refresh_header_vertical 0x7f030009
+int layout tab_host 0x7f03000a
 int menu main 0x7f0a0000
 int menu main_activity_actions 0x7f0a0001
 int string LoginBtn 0x7f07000a

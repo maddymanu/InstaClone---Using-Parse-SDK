@@ -49,6 +49,10 @@
             android:name="UserFeed"
             android:label="@string/title_activity_register" >
         </activity>
+        <activity
+            android:name="UserListFeed"
+            android:label="@string/title_activity_register" >
+        </activity>
     </application>
 
 </manifest>
