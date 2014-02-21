@@ -2,25 +2,29 @@ package com.example.instaclone;
 
 import java.util.List;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-public class UserListFeed extends ListActivity {
-	
+public class UserListFeed extends Activity {
+
 	ParseUser[] users;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.feed_user_list);
-		//ArrayList<String> userNameList
-		//setListAdapter(new UserArrayAdapter(this, MOBILE_OS));
+ 		setContentView(R.layout.feed_user_list);
+		
+		final ListView yourListView = (ListView) findViewById(R.id.list1);
 
 		ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
 		userQuery.findInBackground(new FindCallback<ParseUser>() {
@@ -30,14 +34,28 @@ public class UserListFeed extends ListActivity {
 				users = new ParseUser[userList.size()];
 				if (e == null) {
 					for (ParseUser parseUser : userList) {
- 						Log.i("USER---", parseUser.getUsername());
-						//users.
+						Log.i("USER---", parseUser.getUsername());
+						// users.
 					}
 				}
-				setListAdapter(new UserArrayAdapter(UserListFeed.this, userList));
-			}	
+				yourListView.setAdapter(new UserArrayAdapter(UserListFeed.this, userList));
+				
+				yourListView.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> adapter, View view,
+							int position, long arg3) {
+						Log.i("USER--", "wf " + position);
+						ParseUser user = (ParseUser) adapter.getItemAtPosition(position);
+						Log.i("USER--", "wf " + user.getUsername());
+						
+					}
+				});
+			}
 		});
-		
+
 	}
+
+
 
 }
