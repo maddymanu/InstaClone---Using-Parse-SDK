@@ -178,9 +178,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int temp_img=0x7f020006;
     }
     public static final class id {
-        public static final int LinearLayout01=0x7f050028;
-        public static final int action_search=0x7f05002a;
-        public static final int action_settings=0x7f050029;
+        public static final int LinearLayout01=0x7f05002a;
+        public static final int action_search=0x7f05002c;
+        public static final int action_settings=0x7f05002b;
         public static final int both=0x7f050003;
         public static final int click=0x7f05001d;
         public static final int disabled=0x7f050000;
@@ -190,6 +190,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int gridview=0x7f050009;
         public static final int image_view=0x7f05001c;
         public static final int images_gridview=0x7f050021;
+        public static final int label=0x7f050029;
         public static final int login=0x7f050015;
         public static final int login_password=0x7f05000e;
         public static final int login_username=0x7f05000d;
@@ -220,6 +221,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int txtpassword=0x7f050013;
         public static final int txtusername=0x7f050011;
         public static final int username=0x7f050012;
+        public static final int username_textview=0x7f050028;
         public static final int webview=0x7f05000a;
     }
     public static final class layout {
@@ -228,11 +230,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_register=0x7f030002;
         public static final int activity_welcome=0x7f030003;
         public static final int feed_own=0x7f030004;
-        public static final int feed_user_list=0x7f030005;
-        public static final int gridview_item=0x7f030006;
-        public static final int main=0x7f030007;
-        public static final int pull_to_refresh_header_horizontal=0x7f030008;
-        public static final int pull_to_refresh_header_vertical=0x7f030009;
+        public static final int gridview_item=0x7f030005;
+        public static final int main=0x7f030006;
+        public static final int pull_to_refresh_header_horizontal=0x7f030007;
+        public static final int pull_to_refresh_header_vertical=0x7f030008;
+        public static final int single_user_item=0x7f030009;
         public static final int tab_host=0x7f03000a;
     }
     public static final class menu {
