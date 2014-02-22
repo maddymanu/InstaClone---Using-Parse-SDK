@@ -18,6 +18,7 @@ public class TabsActivity extends TabActivity {
 		TabSpec tab1 = tabHost.newTabSpec("First Tab");
 		TabSpec tab2 = tabHost.newTabSpec("Second Tab");
 		TabSpec tab3 = tabHost.newTabSpec("Third tab");
+		TabSpec tab4 = tabHost.newTabSpec("Fourth tab");
 
 		tab1.setIndicator("Welcome");
 		tab1.setContent(new Intent(this, Welcome.class));
@@ -27,11 +28,14 @@ public class TabsActivity extends TabActivity {
 
 		tab3.setIndicator("All Users");
 		tab3.setContent(new Intent(this, UserListFeed.class)); 
+		
+		tab4.setIndicator("Main Feed");
+		tab4.setContent(new Intent(this, FriendFeed.class)); 
 
-		/** Add the tabs to the TabHost to display. */
 		tabHost.addTab(tab1);
 		tabHost.addTab(tab2);
 		tabHost.addTab(tab3);
+		tabHost.addTab(tab4);
 
 	}
 }
