@@ -12,12 +12,14 @@ import android.widget.ListView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 public class UserListFeed extends Activity {
 
 	ParseUser[] users;
+	Follow follow;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class UserListFeed extends Activity {
 				users = new ParseUser[userList.size()];
 				if (e == null) {
 					for (ParseUser parseUser : userList) {
-						Log.i("USER---", parseUser.getUsername());
+						//Log.i("USER---", parseUser.getUsername());
 						// users.
 					}
 				}
@@ -45,9 +47,13 @@ public class UserListFeed extends Activity {
 					@Override
 					public void onItemClick(AdapterView<?> adapter, View view,
 							int position, long arg3) {
-						Log.i("USER--", "wf " + position);
 						ParseUser user = (ParseUser) adapter.getItemAtPosition(position);
-						Log.i("USER--", "wf " + user.getUsername());
+						
+						
+						follow = new Follow();
+    					follow.setFrom(ParseUser.getCurrentUser());
+						follow.setTo(user);
+						follow.saveInBackground();
 						
 					}
 				});

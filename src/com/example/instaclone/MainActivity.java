@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
 		// setContentView(R.layout.activity_main);
         Parse.initialize(this, "yPLVepda1F0Fut2wVuMsaTwKjafOqAegWZ3JKfnI", "PjHIPdqDeKHmvu7GaoCFnCa48FPq1j45beI2Fxwr");  
         ParseObject.registerSubclass(Pic.class);
+        ParseObject.registerSubclass(Follow.class);
         ParseUser currentUser = ParseUser.getCurrentUser();
 		if(currentUser == null){
 			Intent intent = new Intent(this, LoginActivity.class);

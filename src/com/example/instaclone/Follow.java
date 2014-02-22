@@ -1,8 +1,10 @@
 package com.example.instaclone;
 
+import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+@ParseClassName("Follow")
 public class Follow extends ParseObject{
 	
 	public Follow() {
@@ -13,8 +15,8 @@ public class Follow extends ParseObject{
 		return getParseUser("from");
 	}
 
-	public void setFrom() {
-		put("from", ParseUser.getCurrentUser());
+	public void setFrom(ParseUser curr) {
+		put("from", curr);
 	}
 	
 	public ParseUser getTo() {

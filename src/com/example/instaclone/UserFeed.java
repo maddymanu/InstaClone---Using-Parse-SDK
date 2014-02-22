@@ -96,7 +96,6 @@ public class UserFeed extends Activity {
 					}
 					adapter = new GridViewAdapter(UserFeed.this,
 							picarraylist);
-					// Binds the Adapter to the ListView
 					gridView.setAdapter(adapter);
 				}
 
