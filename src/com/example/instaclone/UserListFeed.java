@@ -62,7 +62,6 @@ public class UserListFeed extends Activity {
 						    		try {
 										followedUsr.fetchIfNeeded();
 									} catch (ParseException e1) {
-										// TODO Auto-generated catch block
 										e1.printStackTrace();
 									}
 						    		if(user.getUsername().equals(followedUsr.getUsername())) {
