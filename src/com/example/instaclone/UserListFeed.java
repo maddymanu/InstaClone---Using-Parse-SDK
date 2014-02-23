@@ -20,6 +20,7 @@ public class UserListFeed extends Activity {
 
 	ParseUser[] users;
 	Follow follow;
+	boolean isFollowing = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -47,13 +48,38 @@ public class UserListFeed extends Activity {
 					@Override
 					public void onItemClick(AdapterView<?> adapter, View view,
 							int position, long arg3) {
-						ParseUser user = (ParseUser) adapter.getItemAtPosition(position);
+						final ParseUser user = (ParseUser) adapter.getItemAtPosition(position);
 						
 						
-						follow = new Follow();
-    					follow.setFrom(ParseUser.getCurrentUser());
-						follow.setTo(user);
-						follow.saveInBackground();
+						ParseQuery<ParseObject> query = ParseQuery.getQuery("Follow");
+						query.include("User.username");
+						query.whereEqualTo("from", ParseUser.getCurrentUser());
+						
+						query.findInBackground(new FindCallback<ParseObject>() {
+						    public void done(List<ParseObject> followList, ParseException e) {
+						    	for (ParseObject obj : followList) {
+						    		ParseUser followedUsr = ((Follow) obj).getTo();
+						    		try {
+										followedUsr.fetchIfNeeded();
+									} catch (ParseException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+						    		if(user.getUsername().equals(followedUsr.getUsername())) {
+						    			isFollowing = true;
+						    			Log.i("User Equal" , "Ok y");
+						    		}
+						    	}
+						    }
+						});
+						
+						
+						if(!isFollowing) {
+							follow = new Follow();
+	    					follow.setFrom(ParseUser.getCurrentUser());
+							follow.setTo(user);
+							follow.saveInBackground();
+						}
 						
 					}
 				});
