@@ -57,7 +57,7 @@ public class UserFeed extends Activity {
 			public void done(List<ParseObject> picList, ParseException e) {
 
 				picarraylist = new ArrayList<PicList>();
-				imageBitmaps = new Bitmap[picList.size() + 1];
+				//imageBitmaps = new Bitmap[picList.size() + 1];
 				// get the entire list of fucking bitmaps
 				if (e == null) {
 
@@ -73,8 +73,7 @@ public class UserFeed extends Activity {
 							@Override
 							public void done(byte[] picBytes,
 									ParseException arg1) {
-								Bitmap bitmap = BitmapFactory.decodeByteArray(
-										picBytes, 0, picBytes.length);
+								
 
 								String imageUri = null;
 								try {
@@ -86,8 +85,6 @@ public class UserFeed extends Activity {
 									e.printStackTrace();
 								}
 
-								imageBitmaps[i] = bitmap;
-								// iv.setImageBitmap(bitmap);
 
 							}
 
