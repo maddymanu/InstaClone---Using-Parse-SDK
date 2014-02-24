@@ -58,7 +58,6 @@ public class UserFeed extends Activity {
 
 				picarraylist = new ArrayList<PicList>();
 				//imageBitmaps = new Bitmap[picList.size() + 1];
-				// get the entire list of fucking bitmaps
 				if (e == null) {
 
 					for (i = 0; i < picList.size(); i++) {
@@ -74,14 +73,12 @@ public class UserFeed extends Activity {
 							public void done(byte[] picBytes,
 									ParseException arg1) {
 								
-
 								String imageUri = null;
 								try {
 									imageUri = new String(picBytes, "UTF-8");
 									imageLoader.displayImage(
 											picBytes.toString(), iv);
 								} catch (UnsupportedEncodingException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 
