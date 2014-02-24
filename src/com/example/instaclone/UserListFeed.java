@@ -25,8 +25,8 @@ public class UserListFeed extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
- 		setContentView(R.layout.feed_user_list);
-		
+		setContentView(R.layout.feed_user_list);
+
 		final ListView yourListView = (ListView) findViewById(R.id.list1);
 
 		ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
@@ -37,56 +37,63 @@ public class UserListFeed extends Activity {
 				users = new ParseUser[userList.size()];
 				if (e == null) {
 					for (ParseUser parseUser : userList) {
-						//Log.i("USER---", parseUser.getUsername());
+						// Log.i("USER---", parseUser.getUsername());
 						// users.
 					}
 				}
-				yourListView.setAdapter(new UserArrayAdapter(UserListFeed.this, userList));
-				
+				yourListView.setAdapter(new UserArrayAdapter(UserListFeed.this,
+						userList));
+
 				yourListView.setOnItemClickListener(new OnItemClickListener() {
 
 					@Override
 					public void onItemClick(AdapterView<?> adapter, View view,
 							int position, long arg3) {
-						final ParseUser user = (ParseUser) adapter.getItemAtPosition(position);
-						
-						
-						ParseQuery<ParseObject> query = ParseQuery.getQuery("Follow");
+						isFollowing = false;
+						final ParseUser user = (ParseUser) adapter
+								.getItemAtPosition(position);
+
+						ParseQuery<ParseObject> query = ParseQuery
+								.getQuery("Follow");
 						query.include("User.username");
 						query.whereEqualTo("from", ParseUser.getCurrentUser());
-						
+
 						query.findInBackground(new FindCallback<ParseObject>() {
-						    public void done(List<ParseObject> followList, ParseException e) {
-						    	for (ParseObject obj : followList) {
-						    		ParseUser followedUsr = ((Follow) obj).getTo();
-						    		try {
+							public void done(List<ParseObject> followList,
+									ParseException e) {
+								for (ParseObject obj : followList) {
+
+									ParseUser followedUsr = ((Follow) obj)
+											.getTo();
+									try {
 										followedUsr.fetchIfNeeded();
 									} catch (ParseException e1) {
 										e1.printStackTrace();
 									}
-						    		if(user.getUsername().equals(followedUsr.getUsername())) {
-						    			isFollowing = true;
-						    			Log.i("User Equal" , "Ok y");
-						    		}
-						    	}
-						    }
+
+									if (user.getUsername().equals(
+											followedUsr.getUsername())) {
+										isFollowing = true;
+									}
+
+								}
+								if (isFollowing == false
+										&& !(ParseUser.getCurrentUser()
+												.getUsername().equals(user
+												.getUsername()))) {
+									follow = new Follow();
+									follow.setFrom(ParseUser.getCurrentUser());
+									follow.setTo(user);
+									follow.saveInBackground();
+								}
+							}
 						});
-						
-						
-						if(!isFollowing) {
-							follow = new Follow();
-	    					follow.setFrom(ParseUser.getCurrentUser());
-							follow.setTo(user);
-							follow.saveInBackground();
-						}
-						
+
 					}
 				});
 			}
 		});
 
 	}
-
-
 
 }
